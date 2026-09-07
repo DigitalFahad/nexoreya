@@ -1,0 +1,2 @@
+import { PlaceholderPage } from '@/components/placeholder-page';
+export default async function Page({ params }: { params: Promise<{ slug: string }> }) { const { slug } = await params; return <PlaceholderPage eyebrow={`Nexoreya Intelligence / ${slug}`} title="Ideas worth paying attention to." description="The intelligence editorial architecture is ready for verified Nexoreya insight content across growth, intelligent systems and transformation." />; }

@@ -1,0 +1,2 @@
+import { PlaceholderPage } from '@/components/placeholder-page';
+export default async function Page({ params }: { params: Promise<{ slug: string }> }) { const { slug } = await params; return <PlaceholderPage eyebrow={`Case Study / ${slug}`} title="Proof is better than promises." description="This case-study shell is intentionally content-light until verified client material, context, implementation details and outcomes are available. The production architecture is ready for the full story." />; }
