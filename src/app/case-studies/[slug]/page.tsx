@@ -1,2 +1,19 @@
-import { PlaceholderPage } from '@/components/placeholder-page';
-export default async function Page({ params }: { params: Promise<{ slug: string }> }) { const { slug } = await params; return <PlaceholderPage eyebrow={`Case Study / ${slug}`} title="Proof is better than promises." description="This case-study shell is intentionally content-light until verified client material, context, implementation details and outcomes are available. The production architecture is ready for the full story." />; }
+import { notFound } from "next/navigation";
+import { redirect } from "next/navigation";
+const destinations: Record<string, string> = {
+  "ai-voice-agent": "/solutions/intelligent-growth-systems/",
+  "ecommerce-growth": "/solutions/digital-experience/",
+  "qsr-performance": "/solutions/growth-strategy/",
+};
+export function generateStaticParams() {
+  return Object.keys(destinations).map((slug) => ({ slug }));
+}
+export default async function Page({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
+  if (!destinations[slug]) notFound();
+  redirect(destinations[slug]);
+}

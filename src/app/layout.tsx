@@ -14,5 +14,5 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return <html lang="en"><body className={`${inter.variable} ${manrope.variable}`}>{children}</body></html>;
+  return <html lang="en"><body className={`${inter.variable} ${manrope.variable}`}><a className="nx-skip" href="#main-content">Skip to content</a>{children}</body></html>;
 }
